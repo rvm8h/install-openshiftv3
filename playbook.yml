@@ -1,0 +1,8 @@
+---
+- hosts:  all 
+  become: true
+  roles:
+    - {role: sysdev.docker-fedora, when: ansible_distribution == "Fedora" }
+    - {role: sysdev.docker-centos, when: ansible_distribution == "CentOS" }
+    - sysdev.openshift
+...
